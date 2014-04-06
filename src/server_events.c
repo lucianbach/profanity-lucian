@@ -29,13 +29,12 @@
 #include "config/preferences.h"
 #include "config/account.h"
 #include "roster_list.h"
-#include "ui/ui.h"
-
-#include "ui/windows.h"
 
 #ifdef HAVE_LIBOTR
 #include "otr/otr.h"
 #endif
+
+#include "ui/ui.h"
 
 // handle presence stanza errors
 void
@@ -514,4 +513,10 @@ void
 handle_gmail_new(void)
 {
     cons_debug("GOT GMAIL NEW");
+}
+
+void
+handle_bookmark_autojoin(char *jid)
+{
+    ui_room_join(jid);
 }
